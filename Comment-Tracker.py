@@ -24,7 +24,7 @@ def read_file(file_path: Path):
 def get_all_students_files(directory: Path):
     # This function will return all student.txt in a directory to view.
     # It will return a dictionary, so it will be easier to access them later.
-    txt_files = sorted(directory.glob(".txt"), key=lambda f: f.name)  # Sort students alphabetically
+    txt_files = sorted(directory.glob("*.txt"), key=lambda f: f.name)  # Sort students alphabetically
     students_dictionary = {}
     index = 1
 
@@ -54,7 +54,7 @@ def main():
             else:
                 student_file_name = input_students_name
 
-            create_student_file(working_dir / student_file_name) # This will create our student .txt file
+            create_student_file(working_dir / student_file_name)  # This will create our student .txt file
 
 
         elif input_command == "break":
