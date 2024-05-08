@@ -49,6 +49,14 @@ def main():
 
         if input_command == "+":
             input_students_name = input(f"Student's name: ")
+            if not input_students_name.endswith(".txt"):
+                student_file_name = input_students_name + ".txt"
+            else:
+                student_file_name = input_students_name
+
+            create_student_file(working_dir / student_file_name) # This will create our student .txt file
+
+
         elif input_command == "break":
             break
 
