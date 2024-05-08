@@ -32,3 +32,26 @@ def get_all_students_files(directory: Path):
         students_dictionary[index] = student
         index += 1
     return students_dictionary
+
+
+def main():
+    working_dir = Path.cwd()
+
+    while True:
+        list_of_students = get_all_students_files(working_dir)
+        print("All Listed Students!")
+
+        # Print out all the students in the directory with x: student format
+        for index, student in list_of_students.items():
+            print(f'{index}: {student}')
+
+        input_command = input(F"Choose or Create a Student(+), or type 'break' to exit: ")
+
+        if input_command == "+":
+            input_students_name = input(f"Student's name: ")
+        elif input_command == "break":
+            break
+
+
+if __name__ == "__main__":
+    main()
