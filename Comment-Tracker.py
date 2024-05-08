@@ -43,7 +43,7 @@ def main():
 
         # Print out all the students in the directory with x: student format
         for index, student in list_of_students.items():
-            print(f'{index}: {student}')
+            print(f'{index}: {student.name}')
 
         input_command = input(F"Choose or Create a Student(+), or type 'break' to exit: ")
 
@@ -59,6 +59,16 @@ def main():
 
         elif input_command == "break":
             break
+
+        else:
+            try:
+                student_number_index = int(input_command)
+                chosen_student = list_of_students[student_number_index]
+                comment = input("Daily report: ")
+                append_comments(chosen_student, comment)
+                read_file(chosen_student)
+            except (ValueError, KeyError):
+                print("Wrong entry. Please try again.")
 
 
 if __name__ == "__main__":
